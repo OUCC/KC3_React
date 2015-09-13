@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>React.js example</title>
+    <link rel="stylesheet" href="../shared/css/base.css" />
+    <script src="../../build/react.js"></script>
+    <script src="../../build/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <h1>React.js example</h1>
+    <div id="container">
+      これが見えている場合、あなたのコードは正しく動いていません:(
+    </div>
+    <script type="text/jsx">
+      var Text = React.createClass({
+        getInitialState: function() {
+          return { text: "" };
+        },
+        onChangeText: function(e) {
+          this.setState({ text: e.target.value });
+        },
+        render: function() {
+          return <div>
+            <input type="text" value={this.state.text}
+                onChange={this.onChangeText} />
+            <p>{this.state.text}</p>
+          </div>;
+        }
+      });
+      React.render(
+        <Text />,
+        document.getElementById("container")
+      );
+    </script>
+  </body>
+</html>
