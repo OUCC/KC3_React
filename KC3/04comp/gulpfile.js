@@ -14,5 +14,5 @@ gulp.task("default", function() {
 });
 
 gulp.task("watch", function() {
-  return gulp.watch("./*.jsx", ["browserify"]);
+  return gulp.watch("./*.jsx", ["default"]);
 });
